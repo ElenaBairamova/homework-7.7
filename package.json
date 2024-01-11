@@ -4,9 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test:main": "npx cypress run --record --group admin --spec \"cypress/e2e/adminPage.cy.js\" --ci-build-id 4",
-    "test:admin": "npx cypress run --record --group main --spec \"cypress/e2e/mainPage.cy.js\" --ci-build-id 4",
-    "test:parallel": "run-p -c test:main test:admin"
+    "test:main:chrome": "npx cypress run --record --group admin --spec \"cypress/e2e/adminPage.cy.js\" --browser chrome",
+    "test:admin:chrome": "npx cypress run --record --group main --spec \"cypress/e2e/mainPage.cy.js\" --browser chrome",
+    "test:parallel:chrome": "run-p -c test:main:chrome test:admin:chrome",
+    
+    "test:main:electron": "npx cypress run --record --group admin --spec \"cypress/e2e/adminPage.cy.js\" --browser electron",
+    "test:admin:electron": "npx cypress run --record --group main --spec \"cypress/e2e/mainPage.cy.js\" --browser electron",
+    "test:parallel:electron": "run-p -c test:main:electron test:admin:electron",
+
+    "test:main:msedge": "npx cypress run --record --group admin --spec \"cypress/e2e/adminPage.cy.js\" --browser \"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\"",
+    "test:admin:msedge": "npx cypress run --record --group main --spec \"cypress/e2e/mainPage.cy.js\" --browser \"C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe\"",
+    "test:parallel:msedge": "run-p -c test:main:msedge test:admin:msedge"
 
     
   },
